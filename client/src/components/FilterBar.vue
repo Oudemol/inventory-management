@@ -102,8 +102,8 @@ export default {
 
 <style scoped>
 .filters-bar {
-  background: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
   padding: 0.75rem 0;
   position: sticky;
   top: 70px;
@@ -132,54 +132,70 @@ export default {
   gap: 0.5rem;
 }
 
+/* EPAM section label style */
 .filter-group label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
   white-space: nowrap;
 }
 
+/* EPAM dark input / select */
 .filter-select {
-  padding: 0.4rem 0.75rem;
-  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border: 1.5px solid var(--color-border);
   border-radius: 6px;
   font-size: 0.813rem;
-  color: #0f172a;
-  background: white;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
   cursor: pointer;
   transition: all 0.2s;
-  font-weight: 500;
+  font-weight: 300;
+  font-family: inherit;
   min-width: 140px;
+  /* Custom dropdown arrow using neutral gray so it works in both light and dark modes */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%23888888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
 }
 
 .filter-select:hover {
-  border-color: #94a3b8;
+  border-color: var(--color-text-secondary);
 }
 
 .filter-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.filter-select option {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
 }
 
 .reset-filters-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem;
-  background: white;
-  border: 1px solid #e2e8f0;
+  padding: 8px;
+  background: transparent;
+  border: 1.5px solid var(--color-border);
   border-radius: 6px;
-  color: #64748b;
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: all 0.2s;
   flex-shrink: 0;
 }
 
 .reset-filters-btn:hover:not(:disabled) {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  color: #0f172a;
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
 }
 
 .reset-filters-btn:disabled {

@@ -234,8 +234,9 @@ export default {
 }
 
 .page-header p {
-  color: #64748b;
+  color: var(--color-text-secondary);
   font-size: 0.875rem;
+  font-weight: 300;
 }
 
 .card-header {
@@ -244,14 +245,15 @@ export default {
   align-items: center;
   gap: 1.5rem;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .card-title {
   font-size: 1rem;
-  font-weight: 600;
-  color: #0f172a;
+  font-weight: 700;
+  color: var(--color-text-primary);
   margin: 0;
+  letter-spacing: 0.02em;
 }
 
 .search-box {
@@ -266,30 +268,31 @@ export default {
   left: 0.75rem;
   width: 18px;
   height: 18px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   pointer-events: none;
 }
 
 .search-input {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 2.5rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
+  padding: 8px 2.5rem 8px 2.5rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
   font-size: 0.875rem;
-  color: #0f172a;
-  background: #f8fafc;
+  color: var(--color-text-primary);
+  background: var(--color-surface);
   transition: all 0.2s;
+  font-family: inherit;
+  font-weight: 300;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #3b82f6;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-bg);
 }
 
 .search-input::placeholder {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 .clear-search {
@@ -302,14 +305,13 @@ export default {
   background: transparent;
   border: none;
   border-radius: 4px;
-  color: #94a3b8;
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .clear-search:hover {
-  background: #e2e8f0;
-  color: #64748b;
+  color: var(--color-accent);
 }
 
 .clear-search svg {
@@ -321,11 +323,11 @@ export default {
 .error {
   padding: 2rem;
   text-align: center;
-  color: #64748b;
+  color: var(--color-text-secondary);
 }
 
 .error {
-  color: #ef4444;
+  color: var(--color-error);
 }
 
 .clickable-row {
@@ -334,6 +336,6 @@ export default {
 }
 
 .clickable-row:hover {
-  background: #eff6ff !important;
+  background: var(--color-accent-bg) !important;
 }
 </style>
