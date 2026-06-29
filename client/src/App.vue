@@ -127,24 +127,59 @@ export default {
 </script>
 
 <style>
+/* EPAM Design System — light mode defaults; html.dark overrides for dark mode */
 :root {
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-border: #e2e8f0;
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #64748b;
-  --color-text-body: #334155;
-  --color-bg-subtle: #f8fafc;
+  --color-bg: #FBFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F5F5F5;
+  --color-border: rgba(0, 0, 0, 0.10);
+  --color-text-primary: #060606;
+  --color-text-secondary: rgba(0, 0, 0, 0.55);
+  --color-text-muted: rgba(0, 0, 0, 0.35);
+  --color-text-body: rgba(0, 0, 0, 0.80);
+  --color-bg-subtle: #FAFAFA;
+  --color-accent: #0047FF;
+  --color-accent-glow: rgba(0, 71, 255, 0.12);
+  --color-accent-bg: rgba(0, 71, 255, 0.08);
+  --color-lilac: #8453D2;
+  --color-success: #036B58;
+  --color-warning: #CB3E01;
+  --color-error: #C50303;
+  --color-info: #0078C2;
+  --color-lime: #5B7B62;
+  --color-success-bg: rgba(3, 107, 88, 0.12);
+  --color-warning-bg: rgba(203, 62, 1, 0.12);
+  --color-error-bg: rgba(197, 3, 3, 0.12);
+  --color-info-bg: rgba(0, 120, 194, 0.12);
+  --color-lilac-bg: rgba(132, 83, 210, 0.12);
+  --color-shadow: rgba(0, 0, 0, 0.10);
 }
 
 html.dark {
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-border: #334155;
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-body: #cbd5e1;
-  --color-bg-subtle: #1e293b;
+  --color-bg: #060606;
+  --color-surface: #111111;
+  --color-surface-elevated: #1a1a1a;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #ffffff;
+  --color-text-secondary: rgba(255, 255, 255, 0.55);
+  --color-text-muted: rgba(255, 255, 255, 0.35);
+  --color-text-body: rgba(255, 255, 255, 0.80);
+  --color-bg-subtle: #0d0d0d;
+  --color-accent: #00F6FF;
+  --color-accent-glow: rgba(0, 246, 255, 0.30);
+  --color-accent-bg: rgba(0, 246, 255, 0.08);
+  --color-lilac: #B896FF;
+  --color-success: #00F4A8;
+  --color-warning: #FF7701;
+  --color-error: #FF4B98;
+  --color-info: #7BA8FF;
+  --color-lime: #D5E662;
+  --color-success-bg: rgba(0, 244, 168, 0.15);
+  --color-warning-bg: rgba(255, 119, 1, 0.15);
+  --color-error-bg: rgba(255, 75, 152, 0.15);
+  --color-info-bg: rgba(123, 168, 255, 0.15);
+  --color-lilac-bg: rgba(184, 150, 255, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.50);
 }
 
 * {
@@ -154,9 +189,11 @@ html.dark {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'MuseoSansCyrl', 'Calibri', 'Trebuchet MS', system-ui, sans-serif;
   background: var(--color-bg);
   color: var(--color-text-body);
+  font-weight: 300;
+  letter-spacing: 0.02em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -170,7 +207,6 @@ body {
 .top-nav {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -204,45 +240,45 @@ body {
   font-size: 1.375rem;
   font-weight: 700;
   color: var(--color-text-primary);
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
 }
 
 .subtitle {
   font-size: 0.813rem;
   color: var(--color-text-secondary);
-  font-weight: 400;
+  font-weight: 300;
   padding-left: 0.75rem;
   border-left: 1px solid var(--color-border);
 }
 
+/* EPAM underline tab pattern */
 .nav-tabs {
   display: flex;
-  gap: 0.25rem;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  align-self: stretch;
 }
 
 .nav-tabs a {
-  padding: 0.625rem 1.25rem;
+  padding: 12px 20px;
   color: var(--color-text-secondary);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.938rem;
-  border-radius: 6px;
+  font-weight: 300;
+  font-size: 15px;
   transition: all 0.2s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .nav-tabs a:hover {
   color: var(--color-text-primary);
-  background: var(--color-bg-subtle);
 }
 
 .nav-tabs a.active {
-  color: #2563eb;
-  background: #eff6ff;
-}
-
-html.dark .nav-tabs a.active {
-  background: #1e3a5f;
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .nav-tabs a.active::after {
@@ -252,7 +288,8 @@ html.dark .nav-tabs a.active {
   left: 0;
   right: 0;
   height: 2px;
-  background: #2563eb;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
 }
 
 .main-content {
@@ -272,12 +309,13 @@ html.dark .nav-tabs a.active {
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: 0.375rem;
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
 }
 
 .page-header p {
   color: var(--color-text-secondary);
   font-size: 0.938rem;
+  font-weight: 300;
 }
 
 .stats-grid {
@@ -287,25 +325,27 @@ html.dark .nav-tabs a.active {
   margin-bottom: 1.5rem;
 }
 
+/* EPAM card style */
 .stat-card {
   background: var(--color-surface);
-  padding: 1.25rem;
-  border-radius: 10px;
+  padding: 28px 24px;
+  border-radius: 12px;
   border: 1px solid var(--color-border);
+  box-shadow: 0 4px 24px var(--color-shadow);
   transition: all 0.2s ease;
 }
 
 .stat-card:hover {
-  border-color: var(--color-text-body);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
+/* EPAM section label (caps) */
 .stat-label {
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
-  font-weight: 600;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.5em;
   margin-bottom: 0.625rem;
 }
 
@@ -313,30 +353,32 @@ html.dark .nav-tabs a.active {
   font-size: 2.25rem;
   font-weight: 700;
   color: var(--color-text-primary);
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
 }
 
 .stat-card.warning .stat-value {
-  color: #ea580c;
+  color: var(--color-warning);
 }
 
 .stat-card.success .stat-value {
-  color: #059669;
+  color: var(--color-success);
 }
 
 .stat-card.danger .stat-value {
-  color: #dc2626;
+  color: var(--color-error);
 }
 
 .stat-card.info .stat-value {
-  color: #2563eb;
+  color: var(--color-accent);
 }
 
+/* EPAM card */
 .card {
   background: var(--color-surface);
-  border-radius: 10px;
-  padding: 1.25rem;
+  border-radius: 12px;
+  padding: 28px 24px;
   border: 1px solid var(--color-border);
+  box-shadow: 0 4px 24px var(--color-shadow);
   margin-bottom: 1.25rem;
 }
 
@@ -353,11 +395,14 @@ html.dark .nav-tabs a.active {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-text-primary);
-  letter-spacing: -0.025em;
+  letter-spacing: 0.02em;
 }
 
 .table-container {
   overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 table {
@@ -365,27 +410,35 @@ table {
   border-collapse: collapse;
 }
 
+/* EPAM table header */
 thead {
-  background: var(--color-bg-subtle);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
 }
 
 th {
   text-align: left;
-  padding: 0.5rem 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  font-size: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
 }
 
+/* EPAM alternating row colors */
 td {
   padding: 0.5rem 0.75rem;
-  border-top: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 300;
   color: var(--color-text-body);
-  font-size: 0.875rem;
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--color-bg-subtle);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-surface);
 }
 
 tbody tr {
@@ -393,117 +446,68 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background: var(--color-bg-subtle);
+  background: var(--color-surface-elevated);
 }
 
+/* EPAM filled badge tags */
 .badge {
   display: inline-block;
-  padding: 0.313rem 0.75rem;
+  padding: 4px 10px;
   border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.05em;
 }
 
 .badge.success {
-  background: #d1fae5;
-  color: #065f46;
+  background: var(--color-success-bg);
+  color: var(--color-success);
 }
 
 .badge.warning {
-  background: #fed7aa;
-  color: #92400e;
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
 }
 
 .badge.danger {
-  background: #fecaca;
-  color: #991b1b;
+  background: var(--color-error-bg);
+  color: var(--color-error);
 }
 
 .badge.info {
-  background: #dbeafe;
-  color: #1e40af;
+  background: var(--color-info-bg);
+  color: var(--color-info);
 }
 
 .badge.increasing {
-  background: #d1fae5;
-  color: #065f46;
+  background: var(--color-success-bg);
+  color: var(--color-success);
 }
 
 .badge.decreasing {
-  background: #fecaca;
-  color: #991b1b;
+  background: var(--color-error-bg);
+  color: var(--color-error);
 }
 
 .badge.stable {
-  background: #e0e7ff;
-  color: #3730a3;
+  background: var(--color-lilac-bg);
+  color: var(--color-lilac);
 }
 
 .badge.high {
-  background: #fecaca;
-  color: #991b1b;
+  background: var(--color-error-bg);
+  color: var(--color-error);
 }
 
 .badge.medium {
-  background: #fed7aa;
-  color: #92400e;
+  background: var(--color-warning-bg);
+  color: var(--color-warning);
 }
 
 .badge.low {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
-html.dark .badge.success {
-  background: #064e3b;
-  color: #6ee7b7;
-}
-
-html.dark .badge.warning {
-  background: #78350f;
-  color: #fcd34d;
-}
-
-html.dark .badge.danger {
-  background: #7f1d1d;
-  color: #fca5a5;
-}
-
-html.dark .badge.info {
-  background: #1e3a5f;
-  color: #93c5fd;
-}
-
-html.dark .badge.increasing {
-  background: #064e3b;
-  color: #6ee7b7;
-}
-
-html.dark .badge.decreasing {
-  background: #7f1d1d;
-  color: #fca5a5;
-}
-
-html.dark .badge.stable {
-  background: #312e81;
-  color: #a5b4fc;
-}
-
-html.dark .badge.high {
-  background: #7f1d1d;
-  color: #fca5a5;
-}
-
-html.dark .badge.medium {
-  background: #78350f;
-  color: #fcd34d;
-}
-
-html.dark .badge.low {
-  background: #1e3a5f;
-  color: #93c5fd;
+  background: var(--color-info-bg);
+  color: var(--color-info);
 }
 
 .loading {
@@ -514,18 +518,12 @@ html.dark .badge.low {
 }
 
 .error {
-  background: #fef2f2;
-  border: 1px solid #fecaca;
-  color: #991b1b;
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
   padding: 1rem;
   border-radius: 8px;
   margin: 1rem 0;
   font-size: 0.938rem;
-}
-
-html.dark .error {
-  background: #450a0a;
-  border-color: #7f1d1d;
-  color: #fca5a5;
 }
 </style>

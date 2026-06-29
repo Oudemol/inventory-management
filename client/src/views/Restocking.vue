@@ -145,11 +145,10 @@ export default {
       budget.value > 0 ? Math.min((selectedTotal.value / budget.value) * 100, 100) : 0
     )
 
-    // Greedy auto-selection: sort by priority ASC, then estimated_cost DESC within same priority
+    // Greedy auto-selection: sort by cost ASC to guarantee monotonic behavior.
+    // More budget always adds items — never removes them. Priority is visible via badges.
     const autoSelect = () => {
-      const sorted = [...recommendations.value].sort((a, b) =>
-        a.priority !== b.priority ? a.priority - b.priority : b.estimated_cost - a.estimated_cost
-      )
+      const sorted = [...recommendations.value].sort((a, b) => a.estimated_cost - b.estimated_cost)
       const newSelected = new Set()
       let running = 0
       for (const item of sorted) {
@@ -251,21 +250,24 @@ export default {
 }
 
 .budget-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #64748b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
 .budget-value {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
 }
 
 .budget-slider {
   width: 100%;
   margin-bottom: 0.75rem;
-  accent-color: #2563eb;
+  accent-color: var(--color-accent);
 }
 
 .utilization-section {
@@ -275,25 +277,27 @@ export default {
 }
 
 .utilization-bar-bg {
-  height: 8px;
-  border-radius: 4px;
-  background: #e2e8f0;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-border);
   overflow: hidden;
 }
 
 .utilization-bar-fill {
-  background: #059669;
+  background: var(--color-success);
   height: 100%;
   transition: width 0.3s;
+  box-shadow: 0 0 8px var(--color-success-bg);
 }
 
 .utilization-label {
   font-size: 0.8125rem;
-  color: #475569;
+  color: var(--color-text-secondary);
+  font-weight: 300;
 }
 
 .utilization-label.muted {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 /* Table */
@@ -314,11 +318,12 @@ export default {
 .sku-cell {
   font-family: monospace;
   font-size: 0.8125rem;
-  color: #64748b;
+  color: var(--color-accent);
 }
 
+/* Selected row highlight in EPAM style */
 .row-selected {
-  background: #f0f9ff;
+  background: rgba(0, 246, 255, 0.06) !important;
 }
 
 /* Summary row below table */
@@ -327,8 +332,9 @@ export default {
   justify-content: flex-end;
   padding: 0.75rem;
   font-size: 0.875rem;
-  color: #475569;
-  border-top: 1px solid #e2e8f0;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+  border-top: 1px solid var(--color-border);
 }
 
 /* Action bar */
@@ -341,47 +347,55 @@ export default {
 }
 
 .success-banner {
-  background: #d1fae5;
-  border: 1px solid #6ee7b7;
-  color: #065f46;
+  background: var(--color-success-bg);
+  border: 1px solid var(--color-success);
+  color: var(--color-success);
   padding: 0.75rem 1rem;
   border-radius: 6px;
   font-size: 0.875rem;
+  font-weight: 300;
 }
 
+/* EPAM primary button */
 .btn-primary {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 0.625rem 1.5rem;
-  border-radius: 6px;
-  font-weight: 600;
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: 12px 32px;
+  border-radius: 40px;
+  font-weight: 900;
+  font-size: 0.813rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   cursor: pointer;
-  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  box-shadow: 0 0 30px var(--color-accent-glow);
 }
 
 .btn-primary:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
-/* Trend badges */
+/* EPAM trend badges — scoped override */
 .badge.increasing {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--color-success-bg);
+  color: var(--color-success);
 }
 
 .badge.stable {
-  background: #dbeafe;
-  color: #1e40af;
+  background: var(--color-lilac-bg);
+  color: var(--color-lilac);
 }
 
 .badge.decreasing {
-  background: #fef9c3;
-  color: #854d0e;
+  background: var(--color-error-bg);
+  color: var(--color-error);
 }
 </style>

@@ -311,6 +311,65 @@ export default {
     selectLanguage: 'Select Language'
   },
 
+  // Backlog
+  backlog: {
+    title: 'Backlog Management',
+    subtitle: 'Track and resolve inventory shortages',
+    loading: 'Loading backlog...',
+    noItems: 'No backlog items - all orders can be fulfilled!',
+    stats: {
+      highPriority: 'High Priority',
+      mediumPriority: 'Medium Priority',
+      lowPriority: 'Low Priority',
+      totalItems: 'Total Backlog Items'
+    },
+    table: {
+      title: 'Backlog Items',
+      orderId: 'Order ID',
+      sku: 'SKU',
+      itemName: 'Item Name',
+      quantityNeeded: 'Quantity Needed',
+      quantityAvailable: 'Quantity Available',
+      shortage: 'Shortage',
+      daysDelayed: 'Days Delayed',
+      priority: 'Priority',
+      unitsShort: 'units short',
+      days: 'days'
+    }
+  },
+
+  // Reports
+  reports: {
+    title: 'Performance Reports',
+    subtitle: 'View quarterly performance metrics and monthly trends',
+    loading: 'Loading reports...',
+    quarterly: {
+      title: 'Quarterly Performance',
+      quarter: 'Quarter',
+      totalOrders: 'Total Orders',
+      totalRevenue: 'Total Revenue',
+      avgOrderValue: 'Avg Order Value',
+      fulfillmentRate: 'Fulfillment Rate'
+    },
+    monthlyChart: {
+      title: 'Monthly Revenue Trend'
+    },
+    monthlyTable: {
+      title: 'Month-over-Month Analysis',
+      month: 'Month',
+      orders: 'Orders',
+      revenue: 'Revenue',
+      change: 'Change',
+      growthRate: 'Growth Rate'
+    },
+    stats: {
+      totalRevenue: 'Total Revenue (YTD)',
+      avgMonthly: 'Avg Monthly Revenue',
+      totalOrders: 'Total Orders (YTD)',
+      bestQuarter: 'Best Performing Quarter'
+    }
+  },
+
   // Common
   common: {
     loading: 'Loading...',

@@ -501,11 +501,11 @@ export default {
 }
 
 .stat-change.positive {
-  color: #059669;
+  color: var(--color-success);
 }
 
 .stat-change.negative {
-  color: #dc2626;
+  color: var(--color-error);
 }
 
 .change-icon {
@@ -527,7 +527,8 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
+  font-weight: 300;
 }
 
 .legend-dot {
@@ -536,12 +537,13 @@ export default {
   border-radius: 3px;
 }
 
-.legend-dot.procurement { background: #3b82f6; }
-.legend-dot.operational { background: #8b5cf6; }
-.legend-dot.labor { background: #10b981; }
-.legend-dot.overhead { background: #f59e0b; }
-.legend-dot.revenue-color { background: #0f172a; }
-.legend-dot.cost-color { background: #ef4444; }
+/* EPAM chart colors */
+.legend-dot.procurement { background: var(--color-accent); }
+.legend-dot.operational { background: var(--color-lilac); }
+.legend-dot.labor { background: var(--color-success); }
+.legend-dot.overhead { background: var(--color-warning); }
+.legend-dot.revenue-color { background: var(--color-info); }
+.legend-dot.cost-color { background: var(--color-error); }
 
 .stats-grid-finance {
   display: grid;
@@ -551,21 +553,22 @@ export default {
 }
 
 .revenue-card {
-  border-left: 4px solid #0f172a;
+  border-left: 4px solid var(--color-info);
 }
 
 .cost-card {
-  border-left: 4px solid #ef4444;
+  border-left: 4px solid var(--color-error);
 }
 
 .profit-card {
-  border-left: 4px solid #3b82f6;
+  border-left: 4px solid var(--color-success);
 }
 
 .stat-meta {
   margin-top: 0.5rem;
   font-size: 0.813rem;
-  color: #64748b;
+  color: var(--color-text-secondary);
+  font-weight: 300;
 }
 
 .bar-group-revenue {
@@ -597,11 +600,11 @@ export default {
 }
 
 .revenue-bar {
-  background: #0f172a;
+  background: var(--color-info);
 }
 
 .cost-bar {
-  background: #ef4444;
+  background: var(--color-error);
 }
 
 .revenue-bar:hover, .cost-bar:hover {
@@ -625,8 +628,8 @@ export default {
   justify-content: space-between;
   padding-right: 1rem;
   font-size: 0.75rem;
-  color: #94a3b8;
-  border-right: 1px solid #e2e8f0;
+  color: var(--color-text-muted);
+  border-right: 1px solid var(--color-border);
 }
 
 .chart-area {
@@ -676,10 +679,11 @@ export default {
   border-radius: 6px 6px 0 0;
 }
 
-.bar-segment.procurement { background: #3b82f6; }
-.bar-segment.operational { background: #8b5cf6; }
-.bar-segment.labor { background: #10b981; }
-.bar-segment.overhead { background: #f59e0b; }
+/* EPAM chart segment colors */
+.bar-segment.procurement { background: var(--color-accent); }
+.bar-segment.operational { background: var(--color-lilac); }
+.bar-segment.labor { background: var(--color-success); }
+.bar-segment.overhead { background: var(--color-warning); }
 
 .bar-segment:hover {
   opacity: 0.8;
@@ -688,8 +692,8 @@ export default {
 .bar-label {
   margin-top: 0.5rem;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: #64748b;
+  font-weight: 300;
+  color: var(--color-text-secondary);
 }
 
 .two-column-grid {
@@ -717,28 +721,29 @@ export default {
 }
 
 .category-name {
-  font-weight: 600;
-  color: #0f172a;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.02em;
 }
 
 .category-amount {
   font-weight: 700;
-  color: #2563eb;
+  color: var(--color-accent);
   font-size: 1.125rem;
 }
 
 .category-bar-container {
   width: 100%;
-  height: 8px;
-  background: #f1f5f9;
-  border-radius: 4px;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
   overflow: hidden;
 }
 
 .category-bar {
   height: 100%;
-  background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
-  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-lilac) 100%);
+  border-radius: 3px;
   transition: width 0.6s ease;
 }
 
@@ -749,19 +754,20 @@ export default {
 }
 
 .percentage {
-  color: #64748b;
+  color: var(--color-text-secondary);
+  font-weight: 300;
 }
 
 .change {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .change.positive {
-  color: #059669;
+  color: var(--color-success);
 }
 
 .change.negative {
-  color: #dc2626;
+  color: var(--color-error);
 }
 
 .transactions-card {
@@ -782,19 +788,19 @@ export default {
 .transactions-table thead {
   position: sticky;
   top: 0;
-  background: #f8fafc;
+  background: var(--color-surface-elevated);
   z-index: 1;
 }
 
 .transactions-table th {
   text-align: left;
   padding: 0.625rem 0.75rem;
-  font-weight: 600;
-  color: #475569;
-  font-size: 0.75rem;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.4em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-bottom: 1px solid #e2e8f0;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .transactions-table th.text-right {
@@ -803,8 +809,9 @@ export default {
 
 .transactions-table td {
   padding: 0.75rem 0.75rem;
-  border-bottom: 1px solid #f1f5f9;
-  font-size: 0.875rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  font-weight: 300;
 }
 
 .transactions-table tbody tr {
@@ -813,37 +820,37 @@ export default {
 }
 
 .transactions-table tbody tr:hover {
-  background: #f8fafc;
+  background: var(--color-surface-elevated);
 }
 
 .transactions-table tbody tr.clickable-row:hover {
-  background: #eff6ff;
+  background: var(--color-accent-bg);
 }
 
 .transaction-id {
-  color: #64748b;
-  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-weight: 300;
   font-family: 'Monaco', 'Courier New', monospace;
   font-size: 0.813rem;
 }
 
 .transaction-description {
-  color: #0f172a;
-  font-weight: 500;
+  color: var(--color-text-body);
+  font-weight: 300;
 }
 
 .transaction-vendor {
-  color: #64748b;
+  color: var(--color-text-secondary);
 }
 
 .transaction-date {
-  color: #64748b;
+  color: var(--color-text-secondary);
   font-size: 0.813rem;
 }
 
 .transaction-amount {
   font-weight: 700;
-  color: #0f172a;
+  color: var(--color-accent);
 }
 
 .text-right {
